@@ -10,11 +10,11 @@ if [ -f /jffs/configs/dnsmasq.conf.add ]; then
 	echo "dnsmasq.conf.add found, generating YazDHCP compatible file"
 	cat /jffs/configs/dnsmasq.conf.add | grep '^dhcp-host=' | awk -F"," '{ printf substr($1,11)","$2 "," $3 ",";if ($4) printf $4 ; printf "\n" }' > cvtYazDHCP
 	more cvtYaxDHCP
-	echo -n "If this file looks good, enter Y copy to /jffs/addons/YazDHCP.d/.staticlist "
+	echo -n "If this file looks good, enter Y copy to /jffs/addons/YazDHCP.d/DHCP_Clients "
 	read -r "confirm"
 	case "$confirm" in
 		y|Y)
-			cp cvtYazDHCP /jffs/addons/YazDHCP.d/.staticlist
+			cp ./cvtYazDHCP /jffs/addons/YazDHCP.d/DHCP_Clients
 			rm ./cvtYazDHCP
 			echo "Copied"
 			echo "Your dnsmasq.conf.add file in /jffs/configs should be disabled/backed up"
