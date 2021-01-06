@@ -1,6 +1,6 @@
 #!/bin/sh
-# Generate /jffs/addons/YazDHCP.d/.staticlist compatible file if a /jffs/configs/dnsmasq.conf.add file exists.
-# Once checked, can be optionaly be copied to  /jffs/addons/YazDHCP.d/.staticlist
+# Generate /jffs/addons/YazDHCP.d/DHCP_Clients compatible file if a /jffs/configs/dnsmasq.conf.add file exists.
+# Once checked, can be optionaly be copied to  /jffs/addons/YazDHCP.d/DHCP_Clients
 if [ -f /jffs/configs/dnsmasq.conf.add ]; then
 	if ! [ -d /jffs/addons/YazDHCP.d ]; then
 		echo "It doesn't appear that you have installed YazDHCP"
