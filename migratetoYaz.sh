@@ -15,9 +15,8 @@ if [ -f /jffs/configs/dnsmasq.conf.add ]; then
         read -r "confirm"
         case "$confirm" in
                 y|Y)
-                        cp cvtYazDHCP /jffs/addons/YazDHCP.d/.staticlist
-                        cp cvtYazDHCPhosts /jffs/addons/YazDHCP.d/.hostnames
-                        rm ./cvtYazDHCP ./cvtYazDHCPhosts
+                        mv ./cvtYazDHCP /jffs/addons/YazDHCP.d/.staticlist
+                        mv ./cvtYazDHCPhosts /jffs/addons/YazDHCP.d/.hostnames
                         echo "Copied"
                         echo "Your dnsmasq.conf.add file in /jffs/configs should be disabled/backed up"
                         echo -n "Should it be renamed to dnsmasq.conf.bak? "
